@@ -1,0 +1,30 @@
+version: '3.5'
+services:
+  npminstall:
+    image: node:20.11.1-bullseye
+    volumes:
+      - "./app:/app"
+    working_dir: /app
+    entrypoint: npm
+    command: install 
+
+  npm:
+    image: node:20.11.1-bullseye
+    volumes:
+      - "./app:/app"
+    working_dir: /app
+    entrypoint: ["npm","run"]
+    # docker-compose  run npmrun watch
+    # docker-compose  run npmrun shell
+    # see package.json for more commands
+
+  watch:
+    image: node:20.11.1-bullseye
+    volumes:
+      - "./app:/app"
+    env_file:
+      - "config/config.env"
+    ports:
+      - "3000:3000"
+    working_dir: "/app"
+    entrypoint: "npm run watch"
