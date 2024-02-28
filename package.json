@@ -36,7 +36,7 @@
       "format": "prettier --write src",
       "format:check": "prettier --check src",
       "shell": "sh"
-    }
+    },
 
   "description": "The base TypeScript template for Create React App.",
   "repository": {
